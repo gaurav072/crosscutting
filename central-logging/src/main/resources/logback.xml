@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                <!--
+                   %d{ISO8601}  displays the date and time in the ISO format
+                   %-5p  the log level -DEBUG, INFO, WARN
+                   %t the name of the thread logging this line.
+                   %c{1}  Invoking Class Name
+                   %M the method.
+                   %L the line number.
+                   %m the message to log.
+                   %n begin a new line.
+                -->
+                %d{yyyy-MM-dd HH:mm:ss}|%X{X-Correlation-ID}|%-5p|%c{1}:%L|%m%n
+            </pattern>
+        </encoder>
+    </appender>
+
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+    <logger name="ch.qos.logback.classic" level="WARN" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="org.springframework" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="org.springframework.web" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="org.springframework.ws" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="org.springframework.security" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+</configuration>

@@ -1,1 +1,4 @@
-rootProject.name = 'crosscutting'
+rootProject.name = 'microservice-crosscutting-concern'
+include 'central-auditing'
+include 'central-logging'
+
